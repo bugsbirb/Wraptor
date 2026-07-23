@@ -1,7 +1,4 @@
 using System.Net.Http.Headers;
-using Wraptor.Core.Services.Health;
-using Wraptor.Core.Services.Ratelimit;
-using Wraptor.Core.Services.Verification;
 
 namespace Wraptor.Core.Services;
 
