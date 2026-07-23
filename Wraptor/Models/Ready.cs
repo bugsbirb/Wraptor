@@ -1,12 +1,13 @@
-using System.Text.Json.Serialization;
+
+using Newtonsoft.Json;
 
 namespace Wraptor.Core.Models;
 
 public class Ready
 {
-    [JsonPropertyName("database")]
+    [JsonProperty("database")]
     public bool Database { get; private set; }
     
-    [JsonPropertyName("redis")]
+    [JsonProperty("redis")]
     public bool Redis { get; private set; }
 }

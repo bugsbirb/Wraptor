@@ -1,5 +1,6 @@
 using System.Net;
 using Newtonsoft.Json;
+using Wraptor.Core.Exceptions;
 
 namespace Wraptor.Core.Models;
 
@@ -9,6 +10,7 @@ public class WraptorResponse<T>(HttpStatusCode responseStatusCode, T? deserializ
     public HttpStatusCode StatusCode { get; private set; }
     public T? Data { get; private set; }
 
+    
     public bool IsSuccess()
     {
         return (int) StatusCode >= 200 && (int) StatusCode <= 299;
@@ -16,10 +18,17 @@ public class WraptorResponse<T>(HttpStatusCode responseStatusCode, T? deserializ
 
     protected internal static WraptorResponse<T> FromResponse(HttpResponseMessage response)
     {
+        string body = response.Content.ReadAsStringAsync().GetAwaiter().GetResult();
+
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new WraptorApiFailure(response.StatusCode, body);
+        }
+        
         return new WraptorResponse<T>(
             response.StatusCode, 
             response.IsSuccessStatusCode 
-                ? JsonConvert.DeserializeObject<T>(response.Content.ReadAsStringAsync().GetAwaiter().GetResult()) 
+                ? JsonConvert.DeserializeObject<T>(body) 
                 : null
         );
     }

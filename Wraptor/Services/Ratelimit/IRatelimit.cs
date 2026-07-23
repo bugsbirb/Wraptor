@@ -4,5 +4,5 @@ namespace Wraptor.Core.Services.Ratelimit;
 
 public interface IRatelimit
 {
-    Task<WraptorResponse<Ratelimits>> Ratelimit(string serverId);
+    Task<WraptorResponse<Ratelimits>> GetRatelimitAsync(string serverId);
 }

@@ -1,12 +1,12 @@
-using System.Text.Json.Serialization;
+using Newtonsoft.Json;
 
 namespace Wraptor.Core.Models;
 
 public class DiscordUser
 {
-    [JsonPropertyName("providerAccountId")]
+    [JsonProperty("providerAccountId")]
     public string? ProviderAccountId { get; private set; }
     
-    [JsonPropertyName("userId")]
+    [JsonProperty("userId")]
     public string? UserId { get; private set; }
 }

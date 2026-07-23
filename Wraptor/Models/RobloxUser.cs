@@ -1,34 +1,35 @@
 using System.Text.Json.Serialization;
+using Newtonsoft.Json;
 
 namespace Wraptor.Core.Models;
 
 public class RobloxUser
 {
-    [JsonPropertyName("createdAt")]
+    [JsonProperty("createdAt")]
     public Int64 CreatedAt { get; private set; }
     
-    [JsonPropertyName("headShotImage")]
+    [JsonProperty("headShotImage")]
     public string? HeadShotImage { get; private set; }
     
-    [JsonPropertyName("lastUpdatedAt")]
+    [JsonProperty("lastUpdatedAt")]
     public Int64 LastUpdatedAt { get; private set; }
     
-    [JsonPropertyName("name")]
+    [JsonProperty("name")]
     public string? Name { get; private set; }
     
-    [JsonPropertyName("nickname")]
+    [JsonProperty("nickname")]
     public string? Nickname { get; private set; }
     
-    [JsonPropertyName("preferredUsername")]
+    [JsonProperty("preferredUsername")]
     public string? PreferredUsername { get; private set; }
     
-    [JsonPropertyName("robloxCreatedAt")]
+    [JsonProperty("robloxCreatedAt")]
     public Int64 RobloxCreatedAt { get; private set; }
     
-    [JsonPropertyName("robloxId")]
+    [JsonProperty("robloxId")]
     public string? RobloxId { get; private set; }
     
-    [JsonPropertyName("userId")]
+    [JsonProperty("userId")]
     public string? UserId { get; private set; }
 
 }

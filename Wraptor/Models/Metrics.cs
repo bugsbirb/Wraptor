@@ -1,12 +1,12 @@
-using System.Text.Json.Serialization;
+using Newtonsoft.Json;
 
 namespace Wraptor.Core.Models;
 
 public class Metrics
 {
-    [JsonPropertyName("status")]
+    [JsonProperty("status")]
     public string? Status { get; private set; }
     
-    [JsonPropertyName("databasePoolSize")]
+    [JsonProperty("databasePoolSize")]
     public Int32? DatabasePoolSize { get; private set; }
 }

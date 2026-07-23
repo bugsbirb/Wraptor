@@ -1,9 +1,9 @@
-using System.Text.Json.Serialization;
+using Newtonsoft.Json;
 
 namespace Wraptor.Core.Models;
 
 public class Live
 {
-    [JsonPropertyName("status")]
+    [JsonProperty("status")]
     public string? Status { get; private set; }
 }

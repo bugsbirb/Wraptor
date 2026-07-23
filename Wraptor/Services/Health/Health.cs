@@ -2,7 +2,7 @@ using Wraptor.Core.Models;
 
 namespace Wraptor.Core.Services.Health;
 
-internal class HealthService: IHealth
+internal class HealthService : IHealth
 {
     private readonly WraptorHttp _http;
 
@@ -11,21 +11,18 @@ internal class HealthService: IHealth
         _http = http;
     }
 
-    public async Task<WraptorResponse<Live>> Live()
+    public async Task<WraptorResponse<Live>> GetLivenessAsync()
     {
-        return WraptorResponse<Live>.FromResponse(
-            await _http.GetAsync("/livez"));
+        return WraptorResponse<Live>.FromResponse(await _http.GetAsync("/livez"));
     }
 
-    public async Task<WraptorResponse<Metrics>> Metrics()
+    public async Task<WraptorResponse<Metrics>> GetMetricsAsync()
     {
-        return WraptorResponse<Metrics>.FromResponse(
-            await _http.GetAsync("/metrics"));
+        return WraptorResponse<Metrics>.FromResponse(await _http.GetAsync("/metrics"));
     }
-    
-    public async Task<WraptorResponse<Ready>> Ready()
+
+    public async Task<WraptorResponse<Ready>> GetReadinessAsync()
     {
-        return WraptorResponse<Ready>.FromResponse(
-            await _http.GetAsync("/readyz"));
+        return WraptorResponse<Ready>.FromResponse(await _http.GetAsync("/readyz"));
     }
 }

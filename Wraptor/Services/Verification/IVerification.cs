@@ -9,14 +9,12 @@ public interface IVerification
     /// </summary>
     /// <param name="discordId"></param>
     /// <returns>Roblox account details</returns>
-    Task<WraptorResponse<RobloxUser>> DiscordToRoblox(string discordId);
-    
+    Task<WraptorResponse<RobloxUser>> DiscordToRobloxAsync(string discordId);
+
     /// <summary>
     /// Returns the discord account linked to a verified roblox account.
     /// </summary>
     /// <param name="robloxId"></param>
     /// <returns>Discord account details</returns>
-    Task<WraptorResponse<DiscordUser>> RobloxToDiscord(string robloxId);
-
-
+    Task<WraptorResponse<DiscordUser>> RobloxToDiscordAsync(string robloxId);
 }

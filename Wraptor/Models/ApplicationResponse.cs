@@ -1,34 +1,35 @@
 using System.Text.Json.Serialization;
+using Newtonsoft.Json;
 
 namespace Wraptor.Core.Models;
 
 public class ApplicationResponse
 {
-    [JsonPropertyName("applicationId")]
+    [JsonProperty("applicationId")]
     public string? ApplicationId { get; private set; }
     
-    [JsonPropertyName("createdAt")]
+    [JsonProperty("createdAt")]
     public Int64 CreatedAt { get; private set; }
     
-    [JsonPropertyName("finalizedAt")]
+    [JsonProperty("finalizedAt")]
     public Int64 FinalizedAt { get; private set; }
     
-    [JsonPropertyName("finalizedBy")]
+    [JsonProperty("finalizedBy")]
     public string? FinalizedBy { get; private set; }
     
-    [JsonPropertyName("id")]
+    [JsonProperty("id")]
     public string? Id { get; private set; }
     
-    [JsonPropertyName("reason")]
+    [JsonProperty("reason")]
     public string? Reason { get; private set; }
     
-    [JsonPropertyName("reviewedAt")]
+    [JsonProperty("reviewedAt")]
     public Int64 ReviewedAt { get; private set; }
     
-    [JsonPropertyName("reviewedBy")]
+    [JsonProperty("reviewedBy")]
     public string? ReviewedBy { get; private set; }
     
-    [JsonPropertyName("robloxId")]
+    [JsonProperty("robloxId")]
     public string? RobloxId { get; private set; }
     
     

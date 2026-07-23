@@ -2,7 +2,7 @@ using Wraptor.Core.Models;
 
 namespace Wraptor.Core.Services.Verification;
 
-internal class VerificationService: IVerification
+internal class VerificationService : IVerification
 {
     private readonly WraptorHttp _http;
 
@@ -10,17 +10,18 @@ internal class VerificationService: IVerification
     {
         _http = http;
     }
-    
-    public async Task<WraptorResponse<RobloxUser>> DiscordToRoblox(string discordId)
+
+    public async Task<WraptorResponse<RobloxUser>> DiscordToRobloxAsync(string discordId)
     {
         return WraptorResponse<RobloxUser>.FromResponse(
-            await _http.GetAsync($"/verification/discord/{discordId}/roblox"));
+            await _http.GetAsync($"/verification/discord/{discordId}/roblox")
+        );
     }
-    
-    public async Task<WraptorResponse<DiscordUser>> RobloxToDiscord(string robloxId)
+
+    public async Task<WraptorResponse<DiscordUser>> RobloxToDiscordAsync(string robloxId)
     {
         return WraptorResponse<DiscordUser>.FromResponse(
-            await _http.GetAsync($"/verification/roblox/{robloxId}/discord"));
+            await _http.GetAsync($"/verification/roblox/{robloxId}/discord")
+        );
     }
-    
 }
