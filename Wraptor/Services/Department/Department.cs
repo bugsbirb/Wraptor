@@ -20,8 +20,23 @@ public class DepartmentService : IDepartment
         Int64? limit = 10
     )
     {
+        List<string> queryParams = [];
+
+        if (!string.IsNullOrWhiteSpace(sort))
+            queryParams.Add(nameof(sort));
+        if (!string.IsNullOrWhiteSpace(orderBy))
+            queryParams.Add(nameof(orderBy));
+        if (page.HasValue)
+            queryParams.Add(nameof(page));
+        if (pageSize.HasValue)
+            queryParams.Add(nameof(pageSize));
+        if (limit.HasValue)
+            queryParams.Add(nameof(limit));
+
+        string query = queryParams.Any() ? "?" + string.Join("&", queryParams) : "";
+
         return WraptorResponse<PaginatedResult<DepartmentInfo>>.FromResponse(
-            await _http.GetAsync("/server/departments")
+            await _http.GetAsync("/server/departments" + query)
         );
     }
 
