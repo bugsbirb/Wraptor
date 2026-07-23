@@ -1,26 +1,26 @@
-using Wraptor.Models;
+using Wraptor.Core.Models;
 
-namespace Wraptor.Services.Verification;
+namespace Wraptor.Core.Services.Verification;
 
 internal class VerificationService: IVerification
 {
-    private readonly WraptorClient _client;
+    private readonly WraptorHttp _http;
 
-    public VerificationService(WraptorClient client)
+    public VerificationService(WraptorHttp http)
     {
-        _client = client;
+        _http = http;
     }
     
     public async Task<WraptorResponse<RobloxUser>> DiscordToRoblox(string discordId)
     {
         return WraptorResponse<RobloxUser>.FromResponse(
-            await _client.GetAsync($"/verification/discord/{discordId}/roblox"));
+            await _http.GetAsync($"/verification/discord/{discordId}/roblox"));
     }
     
     public async Task<WraptorResponse<DiscordUser>> RobloxToDiscord(string robloxId)
     {
         return WraptorResponse<DiscordUser>.FromResponse(
-            await _client.GetAsync($"/verification/roblox/{robloxId}/discord"));
+            await _http.GetAsync($"/verification/roblox/{robloxId}/discord"));
     }
     
 }

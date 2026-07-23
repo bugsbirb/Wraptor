@@ -1,6 +1,6 @@
-using Wraptor.Models;
+using Wraptor.Core.Models;
 
-namespace Wraptor.Services.Health;
+namespace Wraptor.Core.Services.Health;
 
 public interface IHealth
 {

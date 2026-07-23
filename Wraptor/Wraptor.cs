@@ -1,21 +1,21 @@
-﻿using Wraptor.Services;
-using Wraptor.Services.Health;
-using Wraptor.Services.Ratelimit;
-using Wraptor.Services.Verification;
+﻿using Wraptor.Core.Services;
+using Wraptor.Core.Services.Health;
+using Wraptor.Core.Services.Ratelimit;
+using Wraptor.Core.Services.Verification;
 
-namespace Wraptor;
+namespace Wraptor.Core;
 
-public class Wraptor
+public class WraptorClient
 {
-    private readonly WraptorClient _client;
+    private readonly WraptorHttp _client;
     
     public IHealth Health { get; set; }
     public IRatelimit Ratelimit { get; set; }
     public IVerification Verification { get; set; }
 
-    public Wraptor(WraptorOptions options)
+    public WraptorClient(WraptorOptions options)
     {
-        _client = new WraptorClient(options);
+        _client = new WraptorHttp(options);
         
         Health = new HealthService(_client);
         Ratelimit = new RatelimitService(_client);

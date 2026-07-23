@@ -1,19 +1,19 @@
-using Wraptor.Models;
+using Wraptor.Core.Models;
 
-namespace Wraptor.Services.Ratelimit;
+namespace Wraptor.Core.Services.Ratelimit;
 
 internal class RatelimitService: IRatelimit
 {
-    private readonly WraptorClient _client;
+    private readonly WraptorHttp _http;
 
-    internal RatelimitService(WraptorClient client)
+    internal RatelimitService(WraptorHttp http)
     {
-        _client = client;
+        _http = http;
     }
     
     public async Task<WraptorResponse<Ratelimits>> Ratelimit(string serverId)
     {
         return WraptorResponse<Ratelimits>.FromResponse(
-            await _client.GetAsync($"/admin/server/{serverId}/rate-limit"));
+            await _http.GetAsync($"/admin/server/{serverId}/rate-limit"));
     }
 }

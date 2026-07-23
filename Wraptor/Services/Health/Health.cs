@@ -1,31 +1,31 @@
-using Wraptor.Models;
+using Wraptor.Core.Models;
 
-namespace Wraptor.Services.Health;
+namespace Wraptor.Core.Services.Health;
 
 internal class HealthService: IHealth
 {
-    private readonly WraptorClient _client;
+    private readonly WraptorHttp _http;
 
-    internal HealthService(WraptorClient client)
+    internal HealthService(WraptorHttp http)
     {
-        _client = client;
+        _http = http;
     }
 
     public async Task<WraptorResponse<Live>> Live()
     {
         return WraptorResponse<Live>.FromResponse(
-            await _client.GetAsync("/livez"));
+            await _http.GetAsync("/livez"));
     }
 
     public async Task<WraptorResponse<Metrics>> Metrics()
     {
         return WraptorResponse<Metrics>.FromResponse(
-            await _client.GetAsync("/metrics"));
+            await _http.GetAsync("/metrics"));
     }
     
     public async Task<WraptorResponse<Ready>> Ready()
     {
         return WraptorResponse<Ready>.FromResponse(
-            await _client.GetAsync("/readyz"));
+            await _http.GetAsync("/readyz"));
     }
 }

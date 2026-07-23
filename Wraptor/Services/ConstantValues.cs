@@ -1,4 +1,4 @@
-namespace Wraptor.Services;
+namespace Wraptor.Core.Services;
 
 public static class ConstantValues
 {

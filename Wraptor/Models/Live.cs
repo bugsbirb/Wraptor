@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace Wraptor.Models;
+namespace Wraptor.Core.Models;
 
 public class Live
 {

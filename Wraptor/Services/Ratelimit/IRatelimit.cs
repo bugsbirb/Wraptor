@@ -1,6 +1,6 @@
-using Wraptor.Models;
+using Wraptor.Core.Models;
 
-namespace Wraptor.Services.Ratelimit;
+namespace Wraptor.Core.Services.Ratelimit;
 
 public interface IRatelimit
 {

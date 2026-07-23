@@ -1,6 +1,6 @@
-using Wraptor.Models;
+using Wraptor.Core.Models;
 
-namespace Wraptor.Services.Verification;
+namespace Wraptor.Core.Services.Verification;
 
 public interface IVerification
 {

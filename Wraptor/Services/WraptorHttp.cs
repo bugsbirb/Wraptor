@@ -1,13 +1,13 @@
 using System.Net.Http.Headers;
-using Wraptor.Services.Health;
-using Wraptor.Services.Ratelimit;
-using Wraptor.Services.Verification;
+using Wraptor.Core.Services.Health;
+using Wraptor.Core.Services.Ratelimit;
+using Wraptor.Core.Services.Verification;
 
-namespace Wraptor.Services;
+namespace Wraptor.Core.Services;
 
-internal class WraptorClient : HttpClient
+internal class WraptorHttp : HttpClient
 {
-    public WraptorClient(WraptorOptions options)
+    public WraptorHttp(WraptorOptions options)
     {
         BaseAddress = new Uri(options.BaseUrl);
         DefaultRequestHeaders.Authorization =
