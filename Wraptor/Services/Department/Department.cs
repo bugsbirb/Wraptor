@@ -1,8 +1,9 @@
 using Wraptor.Core.Models;
+using Wraptor.Core.Models.Departments;
 
 namespace Wraptor.Core.Services.Department;
 
-public class DepartmentService
+public class DepartmentService : IDepartment
 {
     private readonly WraptorHttp _http;
 

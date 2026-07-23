@@ -1,4 +1,5 @@
 using Wraptor.Core.Models;
+using Wraptor.Core.Models.Verification;
 
 namespace Wraptor.Core.Services.Verification;
 

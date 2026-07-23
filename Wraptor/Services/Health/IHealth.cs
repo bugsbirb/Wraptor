@@ -1,4 +1,5 @@
 using Wraptor.Core.Models;
+using Wraptor.Core.Models.Health;
 
 namespace Wraptor.Core.Services.Health;
 

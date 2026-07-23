@@ -1,4 +1,5 @@
 using Wraptor.Core.Models;
+using Wraptor.Core.Models.Departments;
 
 namespace Wraptor.Core.Services.Department;
 
@@ -14,8 +15,8 @@ public interface IDepartment
     /// <param name="limit"></param>
     /// <returns></returns>
     Task<WraptorResponse<PaginatedResult<DepartmentInfo>>> GetDepartmentsAsync(
-        string? sort,
-        string? orderBy,
+        string? sort = null,
+        string? orderBy = null,
         Int64? page = 1,
         Int64? pageSize = 10,
         Int64? limit = 10

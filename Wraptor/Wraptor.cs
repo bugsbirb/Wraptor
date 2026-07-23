@@ -1,4 +1,5 @@
 ﻿using Wraptor.Core.Services;
+using Wraptor.Core.Services.Department;
 using Wraptor.Core.Services.Health;
 using Wraptor.Core.Services.Ratelimit;
 using Wraptor.Core.Services.Server;
@@ -14,6 +15,7 @@ public class WraptorClient
     public IRatelimit Ratelimit { get; set; }
     public IVerification Verification { get; set; }
     public IServer Server { get; set; }
+    public IDepartment Department { get; set; }
 
     public WraptorClient(WraptorOptions options)
     {
@@ -23,6 +25,7 @@ public class WraptorClient
         Ratelimit = new RatelimitService(_client);
         Verification = new VerificationService(_client);
         Server = new ServerService(_client);
+        Department = new DepartmentService(_client);
     }
 
     public void UpdateKey(string apiKey)

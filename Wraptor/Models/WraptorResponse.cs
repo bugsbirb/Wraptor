@@ -4,16 +4,15 @@ using Wraptor.Core.Exceptions;
 
 namespace Wraptor.Core.Models;
 
-// Credit: https://github.com/1FriendlyDoge/BloxlinkSharp/blob/master/BloxlinkSharp/Models/BloxlinkResponse.cs
-public class WraptorResponse<T>(HttpStatusCode responseStatusCode, T? deserializeObject) where T: class
+public class WraptorResponse<T>(HttpStatusCode responseStatusCode, T? deserializeObject)
+    where T : class
 {
     public HttpStatusCode StatusCode { get; private set; }
     public T? Data { get; private set; }
 
-    
     public bool IsSuccess()
     {
-        return (int) StatusCode >= 200 && (int) StatusCode <= 299;
+        return (int)StatusCode >= 200 && (int)StatusCode <= 299;
     }
 
     protected internal static WraptorResponse<T> FromResponse(HttpResponseMessage response)
@@ -24,14 +23,13 @@ public class WraptorResponse<T>(HttpStatusCode responseStatusCode, T? deserializ
         {
             throw new WraptorApiFailure(response.StatusCode, body);
         }
-        
+
         return new WraptorResponse<T>(
-            response.StatusCode, 
-            response.IsSuccessStatusCode 
-                ? JsonConvert.DeserializeObject<T>(body) 
-                : null
+            response.StatusCode,
+            response.IsSuccessStatusCode ? JsonConvert.DeserializeObject<T>(body) : null
         );
     }
+
     public static implicit operator T?(WraptorResponse<T> response)
     {
         return response?.Data;

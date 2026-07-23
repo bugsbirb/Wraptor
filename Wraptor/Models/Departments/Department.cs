@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-namespace Wraptor.Core.Models;
+namespace Wraptor.Core.Models.Departments;
 
 public class DepartmentInfo
 {
