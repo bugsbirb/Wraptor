@@ -9,7 +9,7 @@ public interface IDepartment
     /// Get a list of departments owned by the authenticated server
     /// </summary>
     /// <param name="properties"></param>
-    /// <returns></returns>
+    /// <returns><see cref="PaginatedResult{T}"/> <see cref="DepartmentInfo"/></returns>
     Task<WraptorResponse<PaginatedResult<DepartmentInfo>>> GetDepartmentsAsync(
         PaginationProperties properties
     );
@@ -18,6 +18,6 @@ public interface IDepartment
     /// Get a department that is owned by the authenticated server
     /// </summary>
     /// <param name="departmentId"></param>
-    /// <returns></returns>
+    /// <returns><see cref="DepartmentInfo"/></returns>
     Task<WraptorResponse<DepartmentInfo>> GetDepartmentAsync(string departmentId);
 }

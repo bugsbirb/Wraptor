@@ -16,20 +16,7 @@ public class DepartmentService : IDepartment
         PaginationProperties properties
     )
     {
-        List<string> queryParams = [];
-
-        if (!string.IsNullOrWhiteSpace(properties.Sort))
-            queryParams.Add(nameof(properties.Sort));
-        if (!string.IsNullOrWhiteSpace(properties.OrderBy))
-            queryParams.Add(nameof(properties.OrderBy));
-        if (properties.Page.HasValue)
-            queryParams.Add(nameof(properties.Page));
-        if (properties.PageSize.HasValue)
-            queryParams.Add(nameof(properties.PageSize));
-        if (properties.Limit.HasValue)
-            queryParams.Add(nameof(properties.Limit));
-
-        string query = queryParams.Any() ? "?" + string.Join("&", queryParams) : "";
+        string query = new PaginationQuery().Params(properties);
 
         return WraptorResponse<PaginatedResult<DepartmentInfo>>.FromResponse(
             await _http.GetAsync("/server/departments" + query)
