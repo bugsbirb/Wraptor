@@ -1,5 +1,6 @@
 using Wraptor.Core.Models;
 using Wraptor.Core.Models.Ratelimits;
+using Wraptor.Core.Services;
 
 namespace Wraptor.Core.Services.Ratelimit;
 

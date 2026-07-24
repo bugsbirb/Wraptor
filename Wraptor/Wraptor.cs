@@ -4,6 +4,7 @@ using Wraptor.Core.Services.Health;
 using Wraptor.Core.Services.Ratelimit;
 using Wraptor.Core.Services.Server;
 using Wraptor.Core.Services.Verification;
+using Wraptor.Core.Services.Webhook;
 
 namespace Wraptor.Core;
 
@@ -16,6 +17,7 @@ public class WraptorClient
     public IVerification Verification { get; set; }
     public IServer Server { get; set; }
     public IDepartment Department { get; set; }
+    public IWebhook Webhook { get; set; }
 
     public WraptorClient(WraptorOptions options)
     {
@@ -26,6 +28,7 @@ public class WraptorClient
         Verification = new VerificationService(_client);
         Server = new ServerService(_client);
         Department = new DepartmentService(_client);
+        Webhook = new WebhookService(_client);
     }
 
     public void UpdateKey(string apiKey)

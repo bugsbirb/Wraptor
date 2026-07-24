@@ -8,7 +8,8 @@ WraptorClient client = new(options);
 
 await client.Health.GetMetricsAsync();
 await client.Department.GetDepartmentAsync("123");
-await client.Department.GetDepartmentsAsync(page: 1);
+await client.Department.GetDepartmentsAsync(new PaginationProperties { Page = 1 });
+await client.Webhook.PostAsync("https://workflows.melonly.xyz/webhook/x/x", new { e = "hi" });
 
 RobloxUser? e = await client.Verification.DiscordToRobloxAsync("795743076520820776");
 

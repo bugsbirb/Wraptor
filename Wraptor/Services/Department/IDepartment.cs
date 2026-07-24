@@ -8,18 +8,10 @@ public interface IDepartment
     /// <summary>
     /// Get a list of departments owned by the authenticated server
     /// </summary>
-    /// <param name="sort"></param>
-    /// <param name="orderBy"></param>
-    /// <param name="page"></param>
-    /// <param name="pageSize"></param>
-    /// <param name="limit"></param>
+    /// <param name="properties"></param>
     /// <returns></returns>
     Task<WraptorResponse<PaginatedResult<DepartmentInfo>>> GetDepartmentsAsync(
-        string? sort = null,
-        string? orderBy = null,
-        Int64? page = 1,
-        Int64? pageSize = 10,
-        Int64? limit = 10
+        PaginationProperties properties
     );
 
     /// <summary>

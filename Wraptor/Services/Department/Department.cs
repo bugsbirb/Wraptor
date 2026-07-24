@@ -13,25 +13,21 @@ public class DepartmentService : IDepartment
     }
 
     public async Task<WraptorResponse<PaginatedResult<DepartmentInfo>>> GetDepartmentsAsync(
-        string? sort,
-        string? orderBy,
-        Int64? page = 1,
-        Int64? pageSize = 10,
-        Int64? limit = 10
+        PaginationProperties properties
     )
     {
         List<string> queryParams = [];
 
-        if (!string.IsNullOrWhiteSpace(sort))
-            queryParams.Add(nameof(sort));
-        if (!string.IsNullOrWhiteSpace(orderBy))
-            queryParams.Add(nameof(orderBy));
-        if (page.HasValue)
-            queryParams.Add(nameof(page));
-        if (pageSize.HasValue)
-            queryParams.Add(nameof(pageSize));
-        if (limit.HasValue)
-            queryParams.Add(nameof(limit));
+        if (!string.IsNullOrWhiteSpace(properties.Sort))
+            queryParams.Add(nameof(properties.Sort));
+        if (!string.IsNullOrWhiteSpace(properties.OrderBy))
+            queryParams.Add(nameof(properties.OrderBy));
+        if (properties.Page.HasValue)
+            queryParams.Add(nameof(properties.Page));
+        if (properties.PageSize.HasValue)
+            queryParams.Add(nameof(properties.PageSize));
+        if (properties.Limit.HasValue)
+            queryParams.Add(nameof(properties.Limit));
 
         string query = queryParams.Any() ? "?" + string.Join("&", queryParams) : "";
 
