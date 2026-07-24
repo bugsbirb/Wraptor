@@ -18,9 +18,10 @@ public class ServerService : IServer
     }
 
     public async Task<WraptorResponse<PaginatedResult<Member>>> GetMembersAsync(
-        PaginationProperties properties
+        PaginationProperties? properties = null
     )
     {
+        properties ??= new PaginationProperties();
         string query = new PaginationQuery().Params(properties);
 
         return WraptorResponse<PaginatedResult<Member>>.FromResponse(
@@ -28,9 +29,9 @@ public class ServerService : IServer
         );
     }
 
-    public async Task<WraptorResponse<PaginatedResult<Member>>> GetMemberAsync(string memberId)
+    public async Task<WraptorResponse<Member>> GetMemberAsync(string memberId)
     {
-        return WraptorResponse<PaginatedResult<Member>>.FromResponse(
+        return WraptorResponse<Member>.FromResponse(
             await _http.GetAsync("/server/members/" + memberId)
         );
     }

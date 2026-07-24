@@ -13,9 +13,10 @@ public class DepartmentService : IDepartment
     }
 
     public async Task<WraptorResponse<PaginatedResult<DepartmentInfo>>> GetDepartmentsAsync(
-        PaginationProperties properties
+        PaginationProperties? properties = null
     )
     {
+        properties ??= new PaginationProperties();
         string query = new PaginationQuery().Params(properties);
 
         return WraptorResponse<PaginatedResult<DepartmentInfo>>.FromResponse(

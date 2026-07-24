@@ -13,9 +13,10 @@ public class ModerationService : IModeration
     }
 
     public async Task<WraptorResponse<PaginatedResult<ModerationLog>>> GetModerationsAsync(
-        PaginationProperties properties
+        PaginationProperties? properties = null
     )
     {
+        properties ??= new PaginationProperties();
         string query = new PaginationQuery().Params(properties);
 
         return WraptorResponse<PaginatedResult<ModerationLog>>.FromResponse(
@@ -25,9 +26,10 @@ public class ModerationService : IModeration
 
     public async Task<WraptorResponse<PaginatedResult<ModerationLog>>> GetModerationsByStaff(
         string staffId,
-        PaginationProperties properties
+        PaginationProperties? properties = null
     )
     {
+        properties ??= new PaginationProperties();
         string query = new PaginationQuery().Params(properties);
 
         return WraptorResponse<PaginatedResult<ModerationLog>>.FromResponse(
@@ -37,9 +39,10 @@ public class ModerationService : IModeration
 
     public async Task<WraptorResponse<PaginatedResult<ModerationLog>>> GetModerationsByUser(
         string userId,
-        PaginationProperties properties
+        PaginationProperties? properties = null
     )
     {
+        properties ??= new PaginationProperties();
         string query = new PaginationQuery().Params(properties);
 
         return WraptorResponse<PaginatedResult<ModerationLog>>.FromResponse(

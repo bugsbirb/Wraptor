@@ -1,20 +1,28 @@
+using System.Collections;
 using Newtonsoft.Json;
 
 namespace Wraptor.Core.Models;
 
-public class PaginatedResult<T> where T: class
+[JsonObject]
+public class PaginatedResult<T> : IEnumerable<T>
+    where T : class
 {
-    public T? Data { get; private set; }
-    
+    [JsonProperty("data")]
+    public List<T> Data { get; private set; } = new();
+
     [JsonProperty("page")]
-    public Int64 Page { get; private set; }
-    
+    public long Page { get; private set; }
+
     [JsonProperty("pageSize")]
-    public Int64 PageSize { get; private set; }
-    
+    public long PageSize { get; private set; }
+
     [JsonProperty("total")]
-    public Int64 Total { get; private set; }
-    
+    public long Total { get; private set; }
+
     [JsonProperty("totalPages")]
-    public Int64 TotalPages { get; private set; }
+    public long TotalPages { get; private set; }
+
+    public IEnumerator<T> GetEnumerator() => Data.GetEnumerator();
+
+    IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 }

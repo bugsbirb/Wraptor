@@ -21,7 +21,7 @@ internal class WraptorHttp
     }
 
     public Task<HttpResponseMessage> GetAsync(string uri) =>
-        SendAsync(new HttpRequestMessage(HttpMethod.Get, uri));
+        SendAsync(new HttpRequestMessage(HttpMethod.Get, uri.TrimStart('/')));
 
     public Task<HttpResponseMessage> PostAsync(Uri uri, HttpContent content) =>
         SendAsync(new HttpRequestMessage(HttpMethod.Post, uri) { Content = content });

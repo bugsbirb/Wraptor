@@ -11,7 +11,7 @@ public interface IModeration
     /// <param name="properties"></param>
     /// <returns><see cref="PaginatedResult{T}"/> <see cref="ModerationLog"/></returns>
     Task<WraptorResponse<PaginatedResult<ModerationLog>>> GetModerationsAsync(
-        PaginationProperties properties
+        PaginationProperties? properties = null
     );
 
     /// <summary>
@@ -22,7 +22,7 @@ public interface IModeration
     /// <returns><see cref="PaginatedResult{T}"/> <see cref="ModerationLog"/></returns>
     Task<WraptorResponse<PaginatedResult<ModerationLog>>> GetModerationsByStaff(
         string staffId,
-        PaginationProperties properties
+        PaginationProperties? properties = null
     );
 
     /// <summary>
@@ -33,7 +33,7 @@ public interface IModeration
     /// <returns><see cref="PaginatedResult{T}"/> <see cref="ModerationLog"/></returns>
     Task<WraptorResponse<PaginatedResult<ModerationLog>>> GetModerationsByUser(
         string userId,
-        PaginationProperties properties
+        PaginationProperties? properties = null
     );
 
     /// <summary>

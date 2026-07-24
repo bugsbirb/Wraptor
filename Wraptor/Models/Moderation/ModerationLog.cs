@@ -29,16 +29,16 @@ public class ModerationLog
     public string? HiddenBy { get; private set; }
 
     [JsonProperty("id")]
-    public string? Id { get; private set; }
+    public required string Id { get; init; }
 
     [JsonProperty("proof")]
     public List<string>? Proof { get; private set; }
 
     [JsonProperty("robloxId")]
-    public string? RobloxId { get; private set; }
+    public required string RobloxId { get; init; }
 
     [JsonProperty("serverId")]
-    public string? ServerId { get; private set; }
+    public required string ServerId { get; init; }
 
     [JsonProperty("tempBan")]
     public bool? TempBan { get; private set; }
@@ -56,5 +56,5 @@ public class ModerationLog
     public Int64? UnbanAt { get; private set; }
 
     [JsonProperty("username")]
-    public string? Username { get; private set; }
+    public required string Username { get; init; }
 }

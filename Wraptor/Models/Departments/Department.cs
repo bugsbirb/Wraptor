@@ -8,19 +8,19 @@ public class DepartmentInfo
     public bool Activated { get; private set; }
 
     [JsonProperty("discordGuildId")]
-    public Int64 DiscordGuildId { get; private set; }
+    public string? DiscordGuildId { get; private set; }
 
     [JsonProperty("icon")]
     public string? Icon { get; private set; }
 
     [JsonProperty("id")]
-    public Int64 Id { get; private set; }
+    public required string Id { get; init; }
 
     [JsonProperty("name")]
-    public string? Name { get; private set; }
+    public required string Name { get; init; }
 
     [JsonProperty("serverId")]
-    public Int64 ServerId { get; private set; }
+    public required string ServerId { get; init; }
 
     [JsonProperty("type")]
     public Int32? Type { get; private set; }

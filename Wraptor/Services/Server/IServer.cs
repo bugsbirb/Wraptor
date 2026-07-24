@@ -16,14 +16,16 @@ public interface IServer
     /// </summary>
     /// <param name="properties"></param>
     /// <returns><see cref="Member"/></returns>
-    Task<WraptorResponse<PaginatedResult<Member>>> GetMembersAsync(PaginationProperties properties);
+    Task<WraptorResponse<PaginatedResult<Member>>> GetMembersAsync(
+        PaginationProperties? properties = null
+    );
 
     /// <summary>
     /// Get a member from your authenticated server by their Melonly member id.
     /// </summary>
     /// <param name="memberId"></param>
     /// <returns><see cref="Member"/></returns>
-    Task<WraptorResponse<PaginatedResult<Member>>> GetMemberAsync(string memberId);
+    Task<WraptorResponse<Member>> GetMemberAsync(string memberId);
 
     /// <summary>
     /// Get a member from your authenticated server by discord id.

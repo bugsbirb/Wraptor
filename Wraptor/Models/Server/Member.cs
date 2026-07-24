@@ -8,11 +8,11 @@ public class Member
     public Int64 CreatedAt { get; private set; }
 
     [JsonProperty("id")]
-    public string? Id { get; private set; }
+    public required string Id { get; init; }
 
     [JsonProperty("roles")]
-    public List<string>? Name { get; private set; }
+    public List<string>? Roles { get; private set; }
 
     [JsonProperty("serverId")]
-    public string? ServerId { get; private set; }
+    public required string ServerId { get; init; }
 }

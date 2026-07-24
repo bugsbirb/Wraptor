@@ -7,3 +7,5 @@
 =======
 *.user
 >>>>>>> Stashed changes
+/Wraptor.Tests/bin
+/Wraptor/bin

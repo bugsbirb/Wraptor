@@ -14,10 +14,10 @@ public class ServerInfo
     public string? JoinCode { get; private set; }
 
     [JsonProperty("name")]
-    public string? Name { get; private set; }
+    public required string Name { get; init; }
 
     [JsonProperty("ownerId")]
-    public string? OwnerId { get; private set; }
+    public required string OwnerId { get; init; }
 
     [JsonProperty("roles")]
     public List<string>? Roles { get; private set; }

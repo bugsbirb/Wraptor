@@ -11,7 +11,7 @@ public interface IDepartment
     /// <param name="properties"></param>
     /// <returns><see cref="PaginatedResult{T}"/> <see cref="DepartmentInfo"/></returns>
     Task<WraptorResponse<PaginatedResult<DepartmentInfo>>> GetDepartmentsAsync(
-        PaginationProperties properties
+        PaginationProperties? properties = null
     );
 
     /// <summary>
